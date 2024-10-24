@@ -16,23 +16,6 @@ simulate_SV = function(T,omega,phi,sigma2_eta){
   
   
 
-T = 1000
-omega = 0
-phi = 0.9
-sigma2_eta = 0.25
-sigma_eta = sqrt(sigma2_eta)
-
-#Simulate latent volatilty process
-
-h = numeric(T)
-h[1] = omega/(1-phi) #intial value, set to expetced value of h
-
-#Loop over recursions
-for(t in 2:T){
-  h[t] = omega + phi * h[t - 1] + rnorm(1,mean = 0,sd = sigma_eta)
-}
-
-
 ####Function to calculate the moment conditions of the SV model of lecture 6####
 
 moment_conditions_SV = function(theta, y){
