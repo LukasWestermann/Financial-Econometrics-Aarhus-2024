@@ -157,7 +157,7 @@ GMM_Estimator <- function(vY) {
 
     # this is the matrix for which the generic row is given by the difference between
     # the theoretical and empirical moments (the g_t(w_t, theta) vector).
-    mG = t(t(mM) - vTheo)
+    mG = t(t(mM) - vTheo) #think about the dimensions here!!!
 
     # # Efficient weight matrix
     mS_HAC = f.Make_S_HAC(mG)
