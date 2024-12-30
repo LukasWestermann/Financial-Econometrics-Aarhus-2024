@@ -14,7 +14,7 @@ tGAS_LLK <- function(vY, dOmega, dAlpha, dBeta, dNu) {
   vPhi[1] = exp(vPhi_tilde[1])
 
   # compute the log density at time 1
-  dLLK = dt(vY[1]/vPhi[1], dNu, log = TRUE) - log(vPhi[1])
+  dLLK = dt(vY[1]/vPhi[1], dNu, log = TRUE) - log(vPhi[1]) #add the log term since the dt funtcinion works without a scale parameter, so we also have to set x/scale to accoutn for that!!!
 
   for (t in 2:iT) {
 
@@ -59,7 +59,7 @@ Estimate_tGAS <- function(vY) {
     # estimated parameters
     vPar = optimizer$par
 
-    #compute phi
+    #compute phi (with optimal parameters)
     vPhi = tGAS_LLK(vY, vPar[1], vPar[2], vPar[3], vPar[4])$vPhi
 
     #compute sigma
