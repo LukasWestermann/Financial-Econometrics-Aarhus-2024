@@ -1,1 +1,2 @@
-# Financial-Econonetrics-Aarhus-2024
+# Financial-Econometrics-Aarhus-2024
+#Code for the assignments
